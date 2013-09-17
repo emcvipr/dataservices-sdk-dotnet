@@ -24,6 +24,7 @@ using Amazon.Runtime.Internal;
 using Amazon.Runtime.Internal.Auth;
 using Amazon.Runtime.Internal.Transform;
 using Amazon.Runtime.Internal.Util;
+using Amazon.SecurityToken;
 using Amazon.Util;
 
 
@@ -37,6 +38,9 @@ namespace Amazon.Runtime
     public abstract class AmazonWebServiceClient : IDisposable
     {
         #region Private members
+
+        static IDictionary<string, RefreshingSessionAWSCredentials> cachedRefreshingCredentials = new Dictionary<string, RefreshingSessionAWSCredentials>();
+        static object cachedRefreshingCredentialsLock = new object();
 
         [Flags]
         internal enum AuthenticationTypes
@@ -144,13 +148,50 @@ namespace Amazon.Runtime
             this.ownCredentials = ownCredentials;
             this.authenticationType = authenticationType;
 
-            this.credentials = credentials;
+            // Lookup cached version of refreshing credentials to reduce calls to STS.
+            if (credentials is RefreshingSessionAWSCredentials)
+            {
+                RefreshingSessionAWSCredentials refreshCredentials = credentials as RefreshingSessionAWSCredentials;
+
+                if (string.IsNullOrEmpty(refreshCredentials.UniqueIdentifier))
+                {
+                    this.credentials = credentials;
+                }
+                else
+                {
+                    this.ownCredentials = false;
+                    lock (cachedRefreshingCredentialsLock)
+                    {
+                        if (cachedRefreshingCredentials.ContainsKey(refreshCredentials.UniqueIdentifier))
+                        {
+                            this.credentials = cachedRefreshingCredentials[refreshCredentials.UniqueIdentifier];
+                        }
+                        else
+                        {
+                            this.credentials = refreshCredentials;
+                            cachedRefreshingCredentials[refreshCredentials.UniqueIdentifier] = refreshCredentials;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                this.credentials = credentials;
+            }
 
             Initialize();
         }
 
         internal AmazonWebServiceClient(string awsAccessKeyId, SecureString awsSecretAccessKey, ClientConfig config, AuthenticationTypes authenticationType)
             : this(new BasicAWSCredentials(awsAccessKeyId, awsSecretAccessKey), config, true, authenticationType)
+        {
+        }
+
+        internal AmazonWebServiceClient(string awsAccessKeyId, string awsSecretAccessKey, ClientConfig config, AuthenticationTypes authenticationType)
+            : this(authenticationType == AuthenticationTypes.Session ?
+                    (AWSCredentials)new RefreshingSessionAWSCredentials(awsAccessKeyId, awsSecretAccessKey, new AmazonSecurityTokenServiceConfig() { UseSecureStringForAwsSecretKey = config.UseSecureStringForAwsSecretKey }) : 
+                    (AWSCredentials)new BasicAWSCredentials(awsAccessKeyId, awsSecretAccessKey, config.UseSecureStringForAwsSecretKey), 
+                config, true, authenticationType)
         {
         }
 
@@ -834,7 +875,7 @@ namespace Amazon.Runtime
         private enum ClientProtocol { QueryStringProtocol, RestProtocol, Unknown }
         private static ClientProtocol DetermineProtocol(AbstractAWSSigner signer)
         {
-            if (signer is AWS3Signer || signer is AWS4Signer)
+            if (signer is AWS3Signer || signer is AWS4Signer || signer is CloudFrontSigner)
                 return ClientProtocol.RestProtocol;
             if (signer is QueryStringSigner)
                 return ClientProtocol.QueryStringProtocol;

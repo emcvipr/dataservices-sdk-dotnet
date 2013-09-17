@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDKSrc", "AWSSDK\AWSSDKSrc.csproj", "{40E91E2D-70F3-463D-9E3E-408AE2A70BA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AWS.Extensions", "AWS.Extensions", "{62AA1570-84F9-4F10-8EEB-ABB854135522}"
@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDK.Test", "AWSSDK.Test\
 	ProjectSection(ProjectDependencies) = postProject
 		{40E91E2D-70F3-463D-9E3E-408AE2A70BA8} = {40E91E2D-70F3-463D-9E3E-408AE2A70BA8}
 	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.SessionProvider", "AWS.Extensions\SessionProvider\AWS.SessionProvider.csproj", "{65DD8109-6DA4-46A7-A29E-DE712F85010A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.TraceListener", "AWS.Extensions\TraceListener\AWS.TraceListener.csproj", "{D607356E-AD0E-4DD2-8281-D42578917BC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,8 +27,20 @@ Global
 		{97922314-2EE0-4831-ADC1-2C711796B78E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97922314-2EE0-4831-ADC1-2C711796B78E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97922314-2EE0-4831-ADC1-2C711796B78E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65DD8109-6DA4-46A7-A29E-DE712F85010A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65DD8109-6DA4-46A7-A29E-DE712F85010A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65DD8109-6DA4-46A7-A29E-DE712F85010A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65DD8109-6DA4-46A7-A29E-DE712F85010A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D607356E-AD0E-4DD2-8281-D42578917BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D607356E-AD0E-4DD2-8281-D42578917BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D607356E-AD0E-4DD2-8281-D42578917BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D607356E-AD0E-4DD2-8281-D42578917BC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65DD8109-6DA4-46A7-A29E-DE712F85010A} = {62AA1570-84F9-4F10-8EEB-ABB854135522}
+		{D607356E-AD0E-4DD2-8281-D42578917BC5} = {62AA1570-84F9-4F10-8EEB-ABB854135522}
 	EndGlobalSection
 EndGlobal
