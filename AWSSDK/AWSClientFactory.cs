@@ -142,6 +142,45 @@ namespace Amazon
         }
 
         /// <summary>
+        /// Create a client for the Amazon S3 Service with the credentials loaded from the application's
+        /// default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+        /// 
+        /// Example App.config with credentials set. 
+        /// <code>
+        /// &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+        /// &lt;configuration&gt;
+        ///     &lt;appSettings&gt;
+        ///         &lt;add key="AWSAccessKey" value="********************"/&gt;
+        ///         &lt;add key="AWSSecretKey" value="****************************************"/&gt;
+        ///     &lt;/appSettings&gt;
+        /// &lt;/configuration&gt;
+        /// </code>
+        /// </summary>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        /// <returns>An Amazon S3 client</returns>
+        public static AmazonS3 CreateAmazonS3Client(Uri serviceUri)
+        {
+            return new AmazonS3Client(serviceUri);
+        }
+
+        /// <summary>
+        /// Create a client for the Amazon S3 Service with the specified region
+        /// </summary>
+        /// <param name="awsAccessKey">The AWS Access Key associated with the account</param>
+        /// <param name="awsSecretAccessKey">The AWS Secret Access Key associated with the account</param>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        /// <returns>An Amazon S3 client</returns>
+        /// <remarks>
+        /// </remarks>
+        public static AmazonS3 CreateAmazonS3Client(
+            string awsAccessKey,
+            string awsSecretAccessKey, Uri serviceUri
+            )
+        {
+            return new AmazonS3Client(awsAccessKey, awsSecretAccessKey, serviceUri);
+        }
+
+        /// <summary>
         /// Create a client for the Amazon S3 Service with the specified region
         /// </summary>
         /// <param name="awsAccessKey">The AWS Access Key associated with the account</param>
@@ -181,6 +220,19 @@ namespace Amazon
         public static AmazonS3 CreateAmazonS3Client(AWSCredentials credentials, RegionEndpoint region)
         {
             return new AmazonS3Client(credentials, region);
+        }
+
+        /// <summary>
+        /// Create a client for the Amazon S3 Service with AWSCredentials and region.
+        /// </summary>
+        /// <param name="credentials">AWS Credentials</param>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        /// <returns>An Amazon S3 client</returns>
+        /// <remarks>
+        /// </remarks>
+        public static AmazonS3 CreateAmazonS3Client(AWSCredentials credentials, Uri serviceUri)
+        {
+            return new AmazonS3Client(credentials, serviceUri);
         }
 
         /// <summary>

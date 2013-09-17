@@ -30,7 +30,7 @@ namespace Amazon.S3
     /// Interface for Amazon S3 Clients.
     /// For more information about Amazon S3, go to <see href="http://aws.amazon.com/s3"/>
     /// </summary>
-    public interface AmazonS3 : IDisposable
+    public partial interface AmazonS3 : IDisposable
     {
         #region GetPreSignedURL
 

@@ -8,8 +8,8 @@
     <ProjectGuid>{40E91E2D-70F3-463D-9E3E-408AE2A70BA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AWSSDK</RootNamespace>
-    <AssemblyName>AWSSDK</AssemblyName>
+    <RootNamespace>Amazon</RootNamespace>
+    <AssemblyName>EMC.ViPR.DataServices.AWSSDK</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
@@ -29,7 +29,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>amazonaws.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -39,7 +40,7 @@
     <SccProvider>
     </SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>awssdk.dll.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>dataservices.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -54,7 +55,7 @@
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\AWSSDK.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\EMC.ViPR.DataServices.AWSSDK.xml</DocumentationFile>
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <NoWarn>419,1591</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -67,7 +68,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\AWSSDK.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\EMC.ViPR.DataServices.AWSSDK.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <DebugSymbols>false</DebugSymbols>
@@ -143,9 +144,12 @@
     <Compile Include="Amazon.Runtime\SignatureException.cs" />
     <Compile Include="Amazon.Runtime\StreamUploadProgressArgs.cs" />
     <Compile Include="Amazon.S3\AmazonS3.cs" />
+    <Compile Include="RegionEndpoint.cs" />
+    <Compile Include="ViPR.S3\AmazonS3.extensions.cs" />
     <Compile Include="Amazon.S3\AmazonS3Client.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViPR.S3\AmazonS3Client.extensions.cs" />
     <Compile Include="Amazon.S3\AmazonS3Config.cs" />
     <Compile Include="Amazon.S3\AmazonS3Exception.cs" />
     <Compile Include="Amazon.S3\Internal\IS3RequestEvents.cs" />
@@ -158,6 +162,8 @@
     <Compile Include="Amazon.S3\Model\AbortMultipartUploadResponse.cs" />
     <Compile Include="Amazon.S3\Model\CompleteMultipartUploadRequest.cs" />
     <Compile Include="Amazon.S3\Model\CompleteMultipartUploadResponse.cs" />
+    <Compile Include="ViPR.S3\Model\AppendObjectRequest.cs" />
+    <Compile Include="ViPR.S3\Model\AppendObjectResponse.cs" />
     <Compile Include="Amazon.S3\Model\CopyPartRequest.cs" />
     <Compile Include="Amazon.S3\Model\CopyPartResponse.cs" />
     <Compile Include="Amazon.S3\Model\CORSConfiguration.cs" />
@@ -231,6 +237,9 @@
     <Compile Include="Amazon.S3\Model\TagSet.cs" />
     <Compile Include="Amazon.S3\Model\PutCORSConfigurationRequest.cs" />
     <Compile Include="Amazon.S3\Model\PutCORSConfigurationResponse.cs" />
+    <Compile Include="ViPR.S3\Model\GetBucketFileAccessModeRequest.cs" />
+    <Compile Include="ViPR.S3\Model\UpdateObjectRequest.cs" />
+    <Compile Include="ViPR.S3\Model\UpdateObjectResponse.cs" />
     <Compile Include="Amazon.S3\Util\AsyncCancelableResult.cs" />
     <Compile Include="Amazon.S3\Util\IAsyncCancelableResult.cs" />
     <Compile Include="Amazon.S3\Util\S3DeleteBucketWithObjectsOptions.cs" />
@@ -338,7 +347,6 @@
     <Compile Include="AWSConfigs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Amazon.Util\AWSSDKUtils.cs" />
-    <Compile Include="RegionEndpoint.cs" />
     <Compile Include="ThirdParty\Ionic.Zlib\Crc32.cs" />
     <Compile Include="ThirdParty\Json\IJsonWrapper.cs" />
     <Compile Include="ThirdParty\Json\JsonData.cs" />
@@ -348,6 +356,11 @@
     <Compile Include="ThirdParty\Json\JsonWriter.cs" />
     <Compile Include="ThirdParty\Json\Lexer.cs" />
     <Compile Include="ThirdParty\Json\ParserToken.cs" />
+    <Compile Include="ViPR.S3\Model\GetFileAccessRequest.cs" />
+    <Compile Include="ViPR.S3\Model\GetFileAccessResponse.cs" />
+    <Compile Include="ViPR.S3\Model\SetBucketFileAccessModeRequest.cs" />
+    <Compile Include="ViPR.S3\Model\BucketFileAccessModeResponse.cs" />
+    <Compile Include="ViPRConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -391,7 +404,6 @@
     <EmbeddedResource Include="Amazon.S3\Model\GetBucketLoggingResponse.xslt" />
     <EmbeddedResource Include="Amazon.S3\Model\CopyObjectResponse.xslt" />
     <EmbeddedResource Include="Amazon.S3\Model\ListObjectsResponse.xslt" />
-    <EmbeddedResource Include="amazonaws.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Amazon.S3\Model\GetBucketVersioningResponse.xslt" />
@@ -424,15 +436,13 @@
     <EmbeddedResource Include="Amazon.S3\Model\GetBucketTaggingResponse.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="endpoints.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Amazon.S3\Model\GetCORSConfigurationResponse.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="awssdk.dll.snk" />
+    <None Include="dataservices.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="endpoints.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

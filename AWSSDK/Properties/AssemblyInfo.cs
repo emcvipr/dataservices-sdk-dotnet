@@ -27,12 +27,12 @@ using System.Runtime.CompilerServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AWSSDK")]
-[assembly: AssemblyDescription("The Amazon Web Services SDK for .NET")]
+[assembly: AssemblyTitle("EMC.ViPR.DataServices.AWSSDK")]
+[assembly: AssemblyDescription("ViPR Data Services AWS SDK for .NET")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Amazon Web Services SDK for .NET")]
-[assembly: AssemblyCompany("Amazon.com, Inc")]
-[assembly: AssemblyCopyright("Copyright 2009-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyProduct("ViPR")]
+[assembly: AssemblyCompany("EMC")]
+[assembly: AssemblyCopyright("Copyright 2013 EMC. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -42,7 +42,7 @@ using System.Runtime.CompilerServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("58439d74-c580-459d-ad66-69f938bd7551")]
+[assembly: Guid("7BD96C88-83E1-4167-9A4C-60B80D584E75")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -54,8 +54,8 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.31.0")]
-[assembly: AssemblyFileVersion("1.5.31.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: System.CLSCompliant(true)]
 [assembly: System.Security.AllowPartiallyTrustedCallers]
