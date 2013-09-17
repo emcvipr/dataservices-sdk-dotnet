@@ -27,9 +27,9 @@ namespace AWSSDK.Test
         }
 
 
-        internal static AmazonS3Client CreateClient()
+        internal static AmazonS3Client CreateClient(AmazonS3Config config = null)
         {
-            AmazonS3Config config = new AmazonS3Config();
+            if(config == null) config = new AmazonS3Config();
 
             Uri endpoint = new Uri(ConfigurationManager.AppSettings["AWSServiceURL"]);
             if (endpoint.HostNameType == UriHostNameType.IPv4 || endpoint.HostNameType == UriHostNameType.IPv6)

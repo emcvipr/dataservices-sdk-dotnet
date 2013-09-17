@@ -8,7 +8,7 @@
     <ProjectGuid>{40E91E2D-70F3-463D-9E3E-408AE2A70BA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amazon</RootNamespace>
+    <RootNamespace>EMC.ViPR.DataServices.AWSSDK</RootNamespace>
     <AssemblyName>EMC.ViPR.DataServices.AWSSDK</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -162,6 +162,7 @@
     <Compile Include="Amazon.S3\Model\AbortMultipartUploadResponse.cs" />
     <Compile Include="Amazon.S3\Model\CompleteMultipartUploadRequest.cs" />
     <Compile Include="Amazon.S3\Model\CompleteMultipartUploadResponse.cs" />
+    <Compile Include="ViPR.S3\AmazonS3Config.cs" />
     <Compile Include="ViPR.S3\Model\AppendObjectRequest.cs" />
     <Compile Include="ViPR.S3\Model\AppendObjectResponse.cs" />
     <Compile Include="Amazon.S3\Model\CopyPartRequest.cs" />

@@ -38,7 +38,7 @@ namespace Amazon.S3.Model
 
         [XmlArray("HostList")]
         [XmlArrayItem("Host")]
-        public List<string> HostList { get; set; }
+        public IList<string> HostList { get; set; }
 
         [XmlElement("Uid")]
         public string Uid { get; set; }

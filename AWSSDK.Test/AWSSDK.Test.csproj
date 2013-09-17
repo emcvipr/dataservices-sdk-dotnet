@@ -53,6 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AppendObjectTests.cs" />
+    <Compile Include="FileAccessTests.cs" />
+    <Compile Include="NamespaceTests.cs" />
     <Compile Include="UpdateObjectTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClientTests.cs" />

@@ -32,7 +32,7 @@ namespace Amazon.S3
     /// <summary>
     /// Configuration for Amazon S3 Client.
     /// </summary>
-    public class AmazonS3Config
+    public partial class AmazonS3Config
     {
         #region Private Members
 

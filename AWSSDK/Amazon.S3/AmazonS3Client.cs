@@ -5836,6 +5836,12 @@ namespace Amazon.S3
             string userAgent = config.UserAgent + " " + (s3AsyncResult.CompletedSynchronously ? "S3Sync" : "S3Async");
             s3AsyncResult.S3Request.Headers[AWSSDKUtils.UserAgentHeader] = userAgent;
 
+            string ns = config.Namespace;
+            if (!string.IsNullOrEmpty(ns))
+            {
+                s3AsyncResult.S3Request.Headers[ViPRConstants.NAMESPACE_HEADER] = ns;
+            }
+
             ProcessRequestHandlers(s3AsyncResult.S3Request);
                         
             ImmutableCredentials immutableCredentials = credentials == null || credentials is AnonymousAWSCredentials ? null : credentials.GetCredentials();
@@ -7218,7 +7224,7 @@ namespace Amazon.S3
             foreach (string key in headers.AllKeys)
             {
                 string lowerKey = key.ToLower();
-                if (lowerKey.StartsWith("x-amz-"))
+                if (lowerKey.StartsWith("x-amz-") || lowerKey.StartsWith(ViPRConstants.EMC_PREFIX))
                 {
                     list.Add(lowerKey);
                 }

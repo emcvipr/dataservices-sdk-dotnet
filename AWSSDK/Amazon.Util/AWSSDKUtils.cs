@@ -155,7 +155,7 @@ namespace Amazon.Util
                 _versionNumber = SDKVersionNumber;
             }
 
-            _sdkUserAgent = string.Format("{0}/{1} .NET Runtime/{2} .NET Framework/{3} OS/{4}",
+            _sdkUserAgent = string.Format("{0}/{1} .NET Runtime/{2} .NET Framework/{3} OS/{4} Variant/ViPR",
                 _userAgentBaseName,
                 _versionNumber,
                 determineRuntime(),
