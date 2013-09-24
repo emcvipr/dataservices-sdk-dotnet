@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>ViPRDataServicesSDK</id>
+        <version>1.0.0</version>
+        <title>EMC ViPR Data Services SDK</title>
+        <authors>EMC</authors>
+        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
+        <projectUrl>https://github.com/emcvipr/dataservices-sdk-dotnet</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Build applications that utilize the ViPR Data Services platform.  Includes an S3 client library based on the AWS SDK.</description>
+    </metadata>
+    <files>
+        <file src="ProjectTemplate\app.config.transform" target="content\app.config.transform" />
+        <file src="AWSSDK\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.dll" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.dll" />
+        <file src="AWSSDK\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.xml" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.xml" />
+        <file src="AWS.Extensions\SessionProvider\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" />
+        <file src="AWS.Extensions\SessionProvider\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.SessionProvider.xml" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.SessionProvider.xml" />
+        <file src="AWS.Extensions\TraceListener\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" />
+        <file src="AWS.Extensions\TraceListener\bin\$ConfigurationName$\EMC.ViPR.DataServices.AWSSDK.TraceListener.xml" target="lib\net35-client\EMC.ViPR.DataServices.AWSSDK.TraceListener.xml" />
+    </files>
+</package>

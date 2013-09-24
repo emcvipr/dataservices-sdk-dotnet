@@ -181,26 +181,6 @@ namespace Amazon.S3
             : this(FallbackCredentialsFactory.GetCredentials(), new AmazonS3Config() { RegionEndpoint = region }, true) { }
 
         /// <summary>
-        /// Constructs AmazonS3Client with the credentials loaded from the application's
-        /// default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
-        /// 
-        /// Example App.config with credentials set. 
-        /// <code>
-        /// &lt;?xml version="1.0" encoding="utf-8" ?&gt;
-        /// &lt;configuration&gt;
-        ///     &lt;appSettings&gt;
-        ///         &lt;add key="AWSAccessKey" value="********************"/&gt;
-        ///         &lt;add key="AWSSecretKey" value="****************************************"/&gt;
-        ///     &lt;/appSettings&gt;
-        /// &lt;/configuration&gt;
-        /// </code>
-        ///
-        /// </summary>
-        /// <param name="serviceUri">The service endpoint to connect to.</param>
-        public AmazonS3Client(Uri serviceUri)
-            : this(FallbackCredentialsFactory.GetCredentials(), new AmazonS3Config() { ServiceURL = serviceUri.AbsoluteUri }, true) { }
-
-        /// <summary>
         /// Constructs AmazonS3Client with AWS Access Key ID and AWS Secret Key
         /// </summary>
         /// <param name="awsAccessKeyId">AWS Access Key ID</param>
@@ -233,19 +213,6 @@ namespace Amazon.S3
         /// <param name="region">The region to connect to.</param>
         public AmazonS3Client(string awsAccessKeyId, string awsSecretAccessKey, RegionEndpoint region)
             : this(CreateCredentials(awsAccessKeyId, awsSecretAccessKey), new AmazonS3Config() { RegionEndpoint = region }, true) { }
-
-        /// <summary>
-        /// Constructs AmazonS3Client with AWS Access Key ID, AWS Secret Key and an
-        /// AmazonS3 Configuration object. If the config object's
-        /// UseSecureStringForAwsSecretKey is false, the AWS Secret Key
-        /// is stored as a clear-text string. Please use this option only
-        /// if the application environment doesn't allow the use of SecureStrings.
-        /// </summary>
-        /// <param name="awsAccessKeyId">AWS Access Key ID</param>
-        /// <param name="awsSecretAccessKey">AWS Secret Access Key</param>
-        /// <param name="serviceUri">The service endpoint to connect to.</param>
-        public AmazonS3Client(string awsAccessKeyId, string awsSecretAccessKey, Uri serviceUri)
-            : this(CreateCredentials(awsAccessKeyId, awsSecretAccessKey), new AmazonS3Config() { ServiceURL = serviceUri.AbsoluteUri }, true) { }
 
         /// <summary>
         /// Constructs an AmazonS3Client with AWS Access Key ID, AWS Secret Key and an
@@ -281,15 +248,6 @@ namespace Amazon.S3
         /// <param name="region">The region to connect to.</param>
         public AmazonS3Client(AWSCredentials credentials, RegionEndpoint region)
             : this(credentials, new AmazonS3Config() { RegionEndpoint = region }, false) { }
-
-        /// <summary>
-        /// Constructs an AmazonS3Client with AWSCredentials and an
-        /// Amazon S3 Configuration object
-        /// </summary>
-        /// <param name="credentials"></param>
-        /// <param name="serviceUri">The service endpoint to connect to.</param>
-        public AmazonS3Client(AWSCredentials credentials, Uri serviceUri)
-            : this(credentials, new AmazonS3Config() { ServiceURL = serviceUri.AbsoluteUri }, false) { }
 
         private AmazonS3Client(AWSCredentials credentials, AmazonS3Config config, bool ownCredentials)
         {

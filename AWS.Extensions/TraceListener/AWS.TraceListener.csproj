@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Amazon</RootNamespace>
-    <AssemblyName>AWS.TraceListener</AssemblyName>
+    <AssemblyName>EMC.ViPR.DataServices.AWSSDK.TraceListener</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\AWS.TraceListener.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\EMC.ViPR.DataServices.AWSSDK.TraceListener.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,13 +31,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\AWS.TraceListener.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\EMC.ViPR.DataServices.AWSSDK.TraceListener.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\awssdk.dll.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>dataservices.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,7 +52,7 @@
     <Compile Include="DynamoDBTraceListener.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\awssdk.dll.snk" />
+    <None Include="dataservices.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AWSSDK\AWSSDKSrc.csproj">

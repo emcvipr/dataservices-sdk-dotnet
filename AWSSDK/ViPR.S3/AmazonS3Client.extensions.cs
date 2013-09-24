@@ -6,11 +6,66 @@ using System.Text;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using System.Net;
+using Amazon.Runtime;
 
 namespace Amazon.S3
 {
     public partial class AmazonS3Client
     {
+        #region Constructors
+        /// <summary>
+        /// Constructs AmazonS3Client with the credentials loaded from the application's
+        /// default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+        /// 
+        /// Example App.config with credentials set. 
+        /// <code>
+        /// &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+        /// &lt;configuration&gt;
+        ///     &lt;appSettings&gt;
+        ///         &lt;add key="AWSAccessKey" value="********************"/&gt;
+        ///         &lt;add key="AWSSecretKey" value="****************************************"/&gt;
+        ///     &lt;/appSettings&gt;
+        /// &lt;/configuration&gt;
+        /// </code>
+        ///
+        /// </summary>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        public AmazonS3Client(Uri serviceUri)
+            : this(FallbackCredentialsFactory.GetCredentials(), CreateConfig(serviceUri), true) { }
+
+        /// <summary>
+        /// Constructs AmazonS3Client with AWS Access Key ID, AWS Secret Key and an
+        /// AmazonS3 Configuration object. If the config object's
+        /// UseSecureStringForAwsSecretKey is false, the AWS Secret Key
+        /// is stored as a clear-text string. Please use this option only
+        /// if the application environment doesn't allow the use of SecureStrings.
+        /// </summary>
+        /// <param name="awsAccessKeyId">AWS Access Key ID</param>
+        /// <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        public AmazonS3Client(string awsAccessKeyId, string awsSecretAccessKey, Uri serviceUri)
+            : this(CreateCredentials(awsAccessKeyId, awsSecretAccessKey), CreateConfig(serviceUri), true) { }
+      
+        /// <summary>
+        /// Constructs an AmazonS3Client with AWSCredentials and an
+        /// Amazon S3 Configuration object
+        /// </summary>
+        /// <param name="credentials"></param>
+        /// <param name="serviceUri">The service endpoint to connect to.</param>
+        public AmazonS3Client(AWSCredentials credentials, Uri serviceUri)
+            : this(credentials, CreateConfig(serviceUri), false) { }
+
+        private static AmazonS3Config CreateConfig(Uri serviceUri)
+        {
+            var config = new AmazonS3Config();
+            config.CommunicationProtocol =
+                string.Equals("http", serviceUri.Scheme, StringComparison.InvariantCultureIgnoreCase) ?
+                Protocol.HTTP : Protocol.HTTPS;
+            config.ServiceURL = serviceUri.GetComponents(UriComponents.HostAndPort, UriFormat.UriEscaped);
+            return config;
+        }
+        #endregion
+
         #region UpdateObject
         public UpdateObjectResponse UpdateObject(UpdateObjectRequest request)
         {

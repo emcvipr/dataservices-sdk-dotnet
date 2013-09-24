@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AWS.SessionProvider")]
-[assembly: AssemblyDescription("Amazon Web Services Session Provider Extensions")]
+[assembly: AssemblyTitle("EMC.ViPR.DataServices.AWSSDK.SessionProvider")]
+[assembly: AssemblyDescription("ViPR Data Services AWS SDK for .NET Session Provider Extensions")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Amazon.com, Inc")]
-[assembly: AssemblyProduct("Amazon Web Services Session Provider Extensions")]
-[assembly: AssemblyCopyright("Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyProduct("ViPR")]
+[assembly: AssemblyCompany("EMC")]
+[assembly: AssemblyCopyright("Copyright 2013 EMC. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("972e230e-a3b8-4854-9b6e-805a4e73398d")]
+[assembly: Guid("C553544F-B597-4A8F-B64C-BC337C045E80")]
 
 // Version information for an assembly consists of the following four values:
 //

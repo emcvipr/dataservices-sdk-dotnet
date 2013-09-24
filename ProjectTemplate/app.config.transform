@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="AWSAccessKey" value="[INSERT ACCESS KEY]" />
+    <add key="AWSSecretKey" value="[INSERT SECRET KEY]" />
+    <add key="AWSServiceURI" value="[INSERT SERVICE URI]" />
+  </appSettings>
+</configuration>

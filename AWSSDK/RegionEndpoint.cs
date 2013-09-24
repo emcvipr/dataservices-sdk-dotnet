@@ -38,7 +38,7 @@ namespace Amazon
     /// </summary>
     public class RegionEndpoint
     {
-        const string EMBEDDED_RESOURCE_OF_REGIONS_FILE = "AWSSDK.endpoints.xml";
+        const string EMBEDDED_RESOURCE_OF_REGIONS_FILE = "EMC.ViPR.DataServices.AWSSDK.endpoints.xml";
         const string CLOUDFRONT_LOCATION_OF_REGIONS_FILE = "https://d3s62xsdspbbg2.cloudfront.net/endpoints.xml";
         const string S3_LOCATION_OF_REGIONS_FILE = "https://aws-sdk-configurations.s3.amazonaws.com/endpoints.xml";
 

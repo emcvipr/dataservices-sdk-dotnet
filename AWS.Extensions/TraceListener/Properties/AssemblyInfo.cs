@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AWS.TraceListener")]
-[assembly: AssemblyDescription("Amazon Web Services TraceListener Extensions")]
+[assembly: AssemblyTitle("EMC.ViPR.DataServices.AWSSDK.TraceListener")]
+[assembly: AssemblyDescription("ViPR Data Services AWS SDK for .NET TraceListener Extensions")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Amazon.com, Inc")]
-[assembly: AssemblyProduct("Amazon Web Services TraceListener Extensions")]
-[assembly: AssemblyCopyright("Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyProduct("ViPR")]
+[assembly: AssemblyCompany("EMC")]
+[assembly: AssemblyCopyright("Copyright 2013 EMC. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d276daa2-9fef-4ca4-ac07-8a310c51fafa")]
+[assembly: Guid("F5C4F6C6-6450-479D-B0E8-7E5FC4B2EE3A")]
 
 // Version information for an assembly consists of the following four values:
 //

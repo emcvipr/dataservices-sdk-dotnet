@@ -31,7 +31,7 @@ namespace AWSSDK.Test
         {
             if(config == null) config = new AmazonS3Config();
 
-            Uri endpoint = new Uri(ConfigurationManager.AppSettings["AWSServiceURL"]);
+            Uri endpoint = new Uri(ConfigurationManager.AppSettings["AWSServiceURI"]);
             if (endpoint.HostNameType == UriHostNameType.IPv4 || endpoint.HostNameType == UriHostNameType.IPv6)
             {
                 // By default, the AWS .NET SDK does not support 
@@ -54,7 +54,10 @@ namespace AWSSDK.Test
             }
             else
             {
-                config.ServiceURL = endpoint.AbsoluteUri;
+                config.CommunicationProtocol =
+                        string.Equals("http", endpoint.Scheme, StringComparison.InvariantCultureIgnoreCase) ?
+                        Protocol.HTTP : Protocol.HTTPS;
+                config.ServiceURL = endpoint.GetComponents(UriComponents.HostAndPort, UriFormat.UriEscaped);
             }
 
             AWSCredentials creds = new BasicAWSCredentials(
