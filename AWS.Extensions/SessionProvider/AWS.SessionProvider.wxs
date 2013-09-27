@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="ViPR.Binaries">
+      <Component Id="comp_EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" Guid="76CFA805-ADF1-4BC2-BEA5-66C3BB4390A1">
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" Source="$(var.SessionProvider.TargetDir)\EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" />
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.SessionProvider.xml" Source="$(var.SessionProvider.TargetDir)\EMC.ViPR.DataServices.AWSSDK.SessionProvider.xml" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="SessionProvider.Binaries">
+      <ComponentRef Id="comp_EMC.ViPR.DataServices.AWSSDK.SessionProvider.dll" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

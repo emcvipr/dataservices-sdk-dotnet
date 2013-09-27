@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="ViPR.Binaries">
+      <Component Id="comp_EMC.ViPR.DataServices.AWSSDK.dll" Guid="2B3250FC-B7DF-42AC-BF79-C6AB5515A007">
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.dll" Source="$(var.AWSSDKSrc.TargetDir)\EMC.ViPR.DataServices.AWSSDK.dll" />
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.xml" Source="$(var.AWSSDKSrc.TargetDir)\EMC.ViPR.DataServices.AWSSDK.xml" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="AWSSDKSrc.Binaries">
+      <ComponentRef Id="comp_EMC.ViPR.DataServices.AWSSDK.dll" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

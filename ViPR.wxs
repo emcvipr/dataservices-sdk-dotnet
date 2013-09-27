@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+
+  <Product Name='EMC ViPR Data Services SDK 1.0' Id='DC8B79E9-E1C2-49A1-A1A2-0A331E61141E' UpgradeCode='EC7AA1B7-BB93-43E4-A134-C8C290B43469'
+    Language='1033' Codepage='1252' Version='1.0.0' Manufacturer='EMC'>
+
+    <Package Id='*' Keywords='Installer' Description="EMC ViPR Data Services SDK Installer"
+      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+    <Media Id='1' Cabinet='sdk.cab' EmbedCab='yes'/>
+
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder' Name='PFiles'>
+        <Directory Id='INSTALLDIR' Name='EMC ViPR Data Services SDK 1.0'>
+          <Directory Id='ViPR.Binaries' Name='bin'/>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id='Complete' Level='1'>
+      <ComponentGroupRef Id='AWSSDKSrc.Binaries' />
+      <ComponentGroupRef Id='SessionProvider.Binaries' />
+      <ComponentGroupRef Id='TraceListener.Binaries' />
+    </Feature>
+  </Product>
+</Wix>

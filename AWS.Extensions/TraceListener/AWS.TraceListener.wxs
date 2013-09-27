@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="ViPR.Binaries">
+      <Component Id="comp_EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" Guid="ED62EC20-3F76-4BDF-B325-418C3156336A">
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" Source="$(var.TraceListener.TargetDir)\EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" />
+        <File Id="file_EMC.ViPR.DataServices.AWSSDK.TraceListener.xml" Source="$(var.TraceListener.TargetDir)\EMC.ViPR.DataServices.AWSSDK.TraceListener.xml" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="TraceListener.Binaries">
+      <ComponentRef Id="comp_EMC.ViPR.DataServices.AWSSDK.TraceListener.dll" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>
