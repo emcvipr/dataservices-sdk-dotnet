@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDKSrc", "AWSSDK\AWSSDKSrc.csproj", "{40E91E2D-70F3-463D-9E3E-408AE2A70BA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AWS.Extensions", "AWS.Extensions", "{62AA1570-84F9-4F10-8EEB-ABB854135522}"
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDK.Test", "AWSSDK.Test\
 	ProjectSection(ProjectDependencies) = postProject
 		{40E91E2D-70F3-463D-9E3E-408AE2A70BA8} = {40E91E2D-70F3-463D-9E3E-408AE2A70BA8}
 	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.SessionProvider", "AWS.Extensions\SessionProvider\AWS.SessionProvider.csproj", "{65DD8109-6DA4-46A7-A29E-DE712F85010A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.TraceListener", "AWS.Extensions\TraceListener\AWS.TraceListener.csproj", "{D607356E-AD0E-4DD2-8281-D42578917BC5}"

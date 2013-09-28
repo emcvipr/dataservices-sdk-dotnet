@@ -20,6 +20,7 @@
       <ComponentGroupRef Id='AWSSDKSrc.Binaries' />
       <ComponentGroupRef Id='SessionProvider.Binaries' />
       <ComponentGroupRef Id='TraceListener.Binaries' />
+      <ComponentGroupRef Id='Samples' />
     </Feature>
   </Product>
 </Wix>

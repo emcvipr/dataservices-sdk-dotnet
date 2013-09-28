@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Directory Id="samples" Name="samples">
+        <Component Id="comp_samples.Samples.sln" Guid="EFC029B3-A7AF-47DB-B658-CAF12E28E226">
+          <File Id="file_samples.Samples.sln" Source="$(var.Content.TargetDir)\samples\Samples.sln" />
+        </Component>
+        <Directory Id="HelloViPR" Name="HelloViPR">
+          <Component Id="comp_samples.HelloViPR.App.config" Guid="4CC15828-3652-4D71-85DB-11C2C8EA161B">
+            <File Id="file_samples.HelloViPR.App.config" Source="$(var.Content.TargetDir)\samples\HelloViPR\App.config" />
+          </Component>
+          <Component Id="comp_samples.HelloViPR.HelloViPR.csproj" Guid="6BA396F6-7905-4BC9-915A-BE7DC6DF2532">
+            <File Id="file_samples.HelloViPR.HelloViPR.csproj" Source="$(var.Content.TargetDir)\samples\HelloViPR\HelloViPR.csproj" />
+          </Component>
+          <Component Id="comp_samples.HelloViPR.Program.cs" Guid="7159F758-6DF9-45DF-B6A8-B58159C69728">
+            <File Id="file_samples.HelloViPR.Program.cs" Source="$(var.Content.TargetDir)\samples\HelloViPR\Program.cs" />
+          </Component>
+          <Component Id="comp_samples.HelloViPR.Utility.cs" Guid="349648F9-2BA1-4E0B-AF0C-4EFFB4691571">
+            <File Id="file_samples.HelloViPR.Utility.cs" Source="$(var.Content.TargetDir)\samples\HelloViPR\Utility.cs" />
+          </Component>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Samples">
+      <ComponentRef Id="comp_samples.Samples.sln" />
+      <ComponentRef Id="comp_samples.HelloViPR.App.config" />
+      <ComponentRef Id="comp_samples.HelloViPR.HelloViPR.csproj" />
+      <ComponentRef Id="comp_samples.HelloViPR.Program.cs" />
+      <ComponentRef Id="comp_samples.HelloViPR.Utility.cs" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

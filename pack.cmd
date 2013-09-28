@@ -28,8 +28,9 @@ candle ViPR.wxs -o obj\%ConfigurationName%\ViPR.wixobj
 candle AWSSDK\AWSSDK.wxs -o obj\%ConfigurationName%\AWSSDK.wixobj -dAWSSDKSrc.TargetDir=%SOLUTIONDIR%\AWSSDK\bin\%ConfigurationName%
 candle AWS.Extensions\SessionProvider\AWS.SessionProvider.wxs -o obj\%ConfigurationName%\AWS.SessionProvider.wixobj -dSessionProvider.TargetDir=%SOLUTIONDIR%\AWS.Extensions\SessionProvider\bin\%ConfigurationName%
 candle AWS.Extensions\TraceListener\AWS.TraceListener.wxs -o obj\%ConfigurationName%\AWS.TraceListener.wixobj -dTraceListener.TargetDir=%SOLUTIONDIR%\AWS.Extensions\TraceListener\bin\%ConfigurationName%
+candle Content\Content.wxs -o obj\%ConfigurationName%\Content.wixobj -dContent.TargetDir=%SOLUTIONDIR%\Content
 
-light -o bin\%ConfigurationName%\ViPRDataServicesSDK.%Version%.msi -pdbout obj\%ConfigurationName%\ViPRDataServicesSDK.%Version%.wixpdb obj\%ConfigurationName%\ViPR.wixobj obj\%ConfigurationName%\AWSSDK.wixobj obj\%ConfigurationName%\AWS.SessionProvider.wixobj obj\%ConfigurationName%\AWS.TraceListener.wixobj
+light -o bin\%ConfigurationName%\ViPRDataServicesSDK.%Version%.msi -pdbout obj\%ConfigurationName%\ViPRDataServicesSDK.%Version%.wixpdb obj\%ConfigurationName%\ViPR.wixobj obj\%ConfigurationName%\AWSSDK.wixobj obj\%ConfigurationName%\AWS.SessionProvider.wixobj obj\%ConfigurationName%\AWS.TraceListener.wixobj obj\%ConfigurationName%\Content.wixobj
 
 REM NUGET
 %SOLUTIONDIR%nuget pack %SOLUTIONDIR%package.nuspec -OutputDirectory %SOLUTIONDIR%bin\%CONFIGURATIONNAME% -Version %VERSION% -Properties "ConfigurationName=%CONFIGURATIONNAME%"
